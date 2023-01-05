@@ -25,6 +25,7 @@ namespace ResidencialApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Directorio>>> GetDirectorio()
         {
+            await Task.Delay(5000);
             return await _context.Directorio.ToListAsync();
         }
 
@@ -32,12 +33,14 @@ namespace ResidencialApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Directorio>> GetDirectorio(int id)
         {
+            await Task.Delay(5000);
             var directorio = await _context.Directorio.FindAsync(id);
 
             if (directorio == null)
             {
                 return NotFound();
             }
+
 
             return directorio;
         }

@@ -25,6 +25,7 @@ namespace ResidencialApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Visitantes>>> GetVisitantes()
         {
+            await Task.Delay(5000);
             return await _context.Visitantes.ToListAsync();
         }
 
@@ -32,6 +33,7 @@ namespace ResidencialApp.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Visitantes>> GetVisitantes(int id)
         {
+            await Task.Delay(5000);
             var visitantes = await _context.Visitantes.FindAsync(id);
 
             if (visitantes == null)
